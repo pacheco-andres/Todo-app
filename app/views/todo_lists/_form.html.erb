@@ -16,6 +16,12 @@
     <%= form.text_field :name %>
   </div>
 
+  <h1>Tasks</h1>
+  <%= form.fields_for :tasks do |f| %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

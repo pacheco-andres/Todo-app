@@ -15,6 +15,7 @@ class TodoListsController < ApplicationController
   # GET /users/new
   def new
     @todo_list = TodoList.new
+    @todo_list.tasks.build
   end
 
   # GET /users/1/edit
@@ -69,6 +70,6 @@ class TodoListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def todo_list_params
-      params.require(:todo_list).permit(:name)
+      params.require(:todo_list).permit(:name, tasks_attributes: [:id, :description])
     end
 end

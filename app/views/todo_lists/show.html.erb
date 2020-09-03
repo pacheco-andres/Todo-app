@@ -5,6 +5,24 @@
   <%= @todo_list.name %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todo_list.tasks.each do |task| %>
+      <tr>
+        <td><%= task.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 
 <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
 <%= link_to 'Back', todo_lists_path %>
+<%= link_to 'Export CSV', '#' %>
+<%= link_to 'Export PDF', '#' %>
