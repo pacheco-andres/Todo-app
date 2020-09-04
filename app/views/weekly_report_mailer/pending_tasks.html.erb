@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Reporte semanal de tareas no completadas</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @pending_tasks.each do |task| %>
+          <tr>
+            <td><%= task.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </body>
+</html>
