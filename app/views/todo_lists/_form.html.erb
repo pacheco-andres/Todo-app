@@ -19,12 +19,20 @@
   <%= form.hidden_field :user_id, value: current_user.id %>
 
   <h1>Tasks</h1>
+
   <%= form.fields_for :tasks do |f| %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+      <%= f.label :description %>
+      <%= text_field_tag 'description', '', class: 'task-description' %>
+    <div class="tasks-container">
+    </div>
   <% end %>
+
+  <%= link_to "Add task", "#", class: "add-task"  %>
+  <%= hidden_field_tag('task_index', '0') %>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<%= javascript_pack_tag 'tasks' %>

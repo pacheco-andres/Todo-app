@@ -1,3 +1,7 @@
-<h1> Welcome to app todo</h1>
+<h1 class="p-3 mb-2 bg-info text-white text-center"> Welcome to TODO list app</h1>
+<%= image_tag ("logo.png"), class: "rounded mx-auto d-block" %> 
 
-<%= link_to 'Todo Lists', todo_lists_path %>
+<% if current_user.present? %>
+  <%= link_to 'Todo Lists', todo_lists_path, class: "btn btn-primary btn-lg todo-list-button"  %>
+<% end %>
+

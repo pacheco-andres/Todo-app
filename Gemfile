@@ -29,6 +29,9 @@ gem  "bootstrap_form" ,  "~> 4.0"
 gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'jquery-rails'
 gem 'devise'
+gem 'sass-rails', '>= 6'
+gem 'bootstrap_form' ,  '~> 4.0'
+gem 'bootstrap', '~> 5.0.0.alpha1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

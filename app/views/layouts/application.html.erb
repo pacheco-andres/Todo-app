@@ -9,19 +9,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class='d-flex flex-column'>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-  <body>
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-  <% if user_signed_in? %>
-    <%= link_to('Sign Out', destroy_user_session_path, method: :delete) %>
+    <% if user_signed_in? %>
+      <%= link_to('Sign Out', destroy_user_session_path, method: :delete, class: 'button') %>
     <% else %>
-    <%= link_to('Sign in', new_user_session_path) %>
-  <% end %>
-
+      <%= link_to('Sign in', new_user_session_path) %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
