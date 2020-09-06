@@ -1,37 +1,39 @@
 <%= form_with(model: todo_list, local: true) do |form| %>
-  <% if todo_list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <div class="form-group todo-list-form">
+     <% if todo_list.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-        <% todo_list.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% todo_list.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label 'Todo List Name' %>
+      <%= form.text_field :name, class: "form-control"%>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <%= form.hidden_field :user_id, value: current_user.id %>
 
-  <%= form.hidden_field :user_id, value: current_user.id %>
+    <h1>Tasks</h1>
 
-  <h1>Tasks</h1>
+    <%= form.fields_for :tasks do |f| %>
+        <%= f.label :description %>
+        <%= text_field_tag 'description', '', class: 'task-description form-control' %>
+      <div class="tasks-container">
+      </div>
+    <% end %>
 
-  <%= form.fields_for :tasks do |f| %>
-      <%= f.label :description %>
-      <%= text_field_tag 'description', '', class: 'task-description' %>
-    <div class="tasks-container">
+    <%= link_to "Add task", "#", class: "add-task btn btn-secondary"  %>
+    <%= hidden_field_tag('task_index', '0') %>
+
+    <div class="actions ">
+      <%= form.submit class: "btn btn-primary"%>
     </div>
-  <% end %>
-
-  <%= link_to "Add task", "#", class: "add-task"  %>
-  <%= hidden_field_tag('task_index', '0') %>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
 <% end %>
 
