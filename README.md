@@ -71,3 +71,9 @@ En [este elnace](setup/README.md) se describen los pasos necesarios para ejecuta
 
 ## Enlaces
 [Encuentra aquí una lista completa de recursos de ayuda](https://github.com/bright-coders/commons/tree/master/topics/resources)
+
+## APP URL
+https://sleepy-ocean-40033.herokuapp.com/
+
+## Register
+https://sleepy-ocean-40033.herokuapp.com/users/sign_up

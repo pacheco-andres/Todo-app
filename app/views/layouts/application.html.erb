@@ -14,7 +14,13 @@
     <p class="alert"><%= alert %></p>
 
     <% if user_signed_in? %>
-      <%= link_to('Sign Out', destroy_user_session_path, method: :delete, class: 'button') %>
+      <div class='d-flex justify-content-between'>
+        <%= link_to('Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-light') %>
+        <div class='d-flex justify-content-end'>
+          <%= image_tag(current_user.avatar, class: 'avatar') %>
+          <%= link_to('Edit Profile', edit_user_path(current_user), class: 'btn btn-light') %>
+        </div>
+      </div>
     <% else %>
       <%= link_to('Sign in', new_user_session_path) %>
     <% end %>
