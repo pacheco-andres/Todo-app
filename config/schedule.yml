@@ -1,0 +1,4 @@
+weekly_report:
+  cron: "30 9 * * 1"
+  class: "WeeklyReport"
+  description: 'Run every monday at 9:30am'
