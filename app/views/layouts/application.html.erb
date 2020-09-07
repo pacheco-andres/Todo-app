@@ -21,7 +21,9 @@
         </div>
 
         <div class='d-flex justify-content-end'>
-          <%= image_tag(current_user.avatar, class: 'avatar') %>
+          <% if current_user.avatar.present? %>
+            <%= image_tag(current_user.avatar, class: 'avatar') %>
+          <% end %>
           <%= link_to('Edit Profile', edit_user_path(current_user), class: 'btn btn-light') %>
         </div>
       </div>
