@@ -5,6 +5,8 @@
   <%= @todo_list.name %>
 </p>
 
+<strong>Tasks:</strong>
+
 <table>
   <thead>
     <tr>
@@ -21,8 +23,7 @@
   </tbody>
 </table>
 
-
-<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
-<%= link_to 'Back', todo_lists_path %>
-<%= link_to 'Export CSV', '#' %>
-<%= link_to 'Export PDF', '#' %>
+<%= link_to 'Edit', edit_todo_list_path(@todo_list) if params['format'].nil? %> |
+<%= link_to 'Back', todo_lists_path if params['format'].nil? %>
+<%= link_to( 'Export CSV', todo_list_path(format: "csv" )) if params['format'].nil? %>
+<%= link_to( 'Export PDF', todo_list_path(format: "pdf" )) if params['format'].nil? %>

@@ -11,6 +11,15 @@ class TodoListsController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.csv { send_data @todo_list.to_csv }
+      format.pdf do
+        render pdf: 'report',
+        template: 'todo_lists/show.html.erb',
+        layout: 'pdf.html'
+      end
+    end
   end
 
   # GET /users/new
